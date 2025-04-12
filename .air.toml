@@ -1,0 +1,16 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  bin = "tmp/main"
+  cmd = "go build -o tmp/main ./main.go"
+  delay = 1000
+
+# [log]
+#   level = "debug"
+
+# [watcher]
+#   dirs = ["."]
+#   exclude_dirs = ["tmp", "vendor"]
+#   extensions = ["go", "tpl", "tmpl", "html"]
+#   exclude_files = ["air.toml"]
