@@ -25,14 +25,6 @@ CREATE TABLE IF NOT EXISTS products (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4 (),
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    multiple_variant BOOLEAN,
-    option_1 VARCHAR(255),
-    option_value_1 JSONB,
-    option_2 VARCHAR(255),
-    option_value_2 JSONB,
-    option_3 VARCHAR(255),
-    option_value_3 JSONB,
-    image JSONB,
     stock INT,
     price INT,
     weight INT,
@@ -41,22 +33,6 @@ CREATE TABLE IF NOT EXISTS products (
     variant_count INT,
     unique_code_type VARCHAR(100),
     sold BOOLEAN DEFAULT false,
-    created_at BIGINT NOT NULL,
-);
-
-CREATE TABLE IF NOT EXISTS product_variants (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4 (),
-    product_id BIGINT NOT NULL REFERENCES products (id) ON DELETE CASCADE,
-    is_active BOOLEAN,
-    variant JSONB,
-    variant_string TEXT,
-    price INT,
-    base_price INT,
-    stock INT,
-    weight INT,
-    image JSONB,
-    sku VARCHAR(100),
-    owner BIGINT,
     created_at BIGINT NOT NULL,
 );
 
@@ -112,44 +88,44 @@ CREATE INDEX idx_transactions_account_id ON transactions (account_id);
 CREATE INDEX idx_transactions_created_at ON transactions (created_at);
 
 CREATE TABLE IF NOT EXISTS accounts (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id UUID NOT NULL,
-    balance BIGINT NOT NULL DEFAULT 0,
-    created_at BIGINT NOT NULL,
-    updated_at BIGINT NOT NULL,
-    deleted_at TIMESTAMP,
-    CONSTRAINT check_balance_non_negative CHECK (balance >= 0)
+id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+user_id UUID NOT NULL,
+balance BIGINT NOT NULL DEFAULT 0,
+created_at BIGINT NOT NULL,
+updated_at BIGINT NOT NULL,
+deleted_at TIMESTAMP,
+CONSTRAINT check_balance_non_negative CHECK (balance >= 0)
 );
 
 CREATE TABLE IF NOT EXISTS transactions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    account_id UUID NOT NULL,
-    order_id UUID,
-    amount BIGINT NOT NULL,
-    type VARCHAR(20) NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    description TEXT,
-    created_at BIGINT NOT NULL,
-    deleted_at TIMESTAMP,
+id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+account_id UUID NOT NULL,
+order_id UUID,
+amount BIGINT NOT NULL,
+type VARCHAR(20) NOT NULL,
+status VARCHAR(20) NOT NULL,
+description TEXT,
+created_at BIGINT NOT NULL,
+deleted_at TIMESTAMP,
 );
 
 CREATE TABLE IF NOT EXISTS orders (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    user_id UUID NOT NULL,
-    cart_id UUID NOT NULL,
-    status VARCHAR(20) NOT NULL,
-    total_amount BIGINT NOT NULL,
-    created_at BIGINT NOT NULL,
-    updated_at BIGINT NOT NULL,
-    paid_at BIGINT,
-    deleted_at TIMESTAMP,
+id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+user_id UUID NOT NULL,
+cart_id UUID NOT NULL,
+status VARCHAR(20) NOT NULL,
+total_amount BIGINT NOT NULL,
+created_at BIGINT NOT NULL,
+updated_at BIGINT NOT NULL,
+paid_at BIGINT,
+deleted_at TIMESTAMP,
 );
 
 CREATE TABLE IF NOT EXISTS order_items (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    order_id UUID NOT NULL,
-    product_id UUID NOT NULL,
-    quantity INTEGER NOT NULL,
-    price BIGINT NOT NULL,
-    created_at BIGINT NOT NULL,
+id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+order_id UUID NOT NULL,
+product_id UUID NOT NULL,
+quantity INTEGER NOT NULL,
+price BIGINT NOT NULL,
+created_at BIGINT NOT NULL,
 );

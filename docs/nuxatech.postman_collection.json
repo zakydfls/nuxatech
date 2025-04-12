@@ -1,0 +1,660 @@
+{
+	"info": {
+		"_postman_id": "f39e164a-8b53-4131-99ea-519d3fc48d7d",
+		"name": "nuxatech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24833576"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"zaky@mail.com\",\n    \"username\":\"zakydfls\",\n    \"password\":\"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/v1/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/user/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find after",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inpha3lAbWFpbC5jb20iLCJleHBpcmVkX2F0IjoxNzQ0MTc0NjIzLCJpc3N1ZWRfYXQiOjE3NDQxNjM4MjMsInVzZXJfaWQiOiI1NDczMTdhNy01ODhlLTQxYWQtYmNhNi0yZWU4YWMzZWE0YjIiLCJ1c2VybmFtZSI6Inpha3lkZmxzIn0.xYFeCmlrpZlIAMZVZQfuj2PyJ7uN5Q8alIdyY_EqAB8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/v1/user/find/date?after=08-04-2025",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"find",
+								"date"
+							],
+							"query": [
+								{
+									"key": "after",
+									"value": "08-04-2025"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHBpcmVkX2F0IjoxNzQ1MDYyOTQ2LCJpc3N1ZWRfYXQiOjE3NDQ0NTgxNDYsInRva2VuX2lkIjoiMGI4MDZkMTItYWE4Zi00OWFkLWJkODYtM2VlMTQxMWY3NzQyIiwidXNlcl9pZCI6IjU0NzMxN2E3LTU4OGUtNDFhZC1iY2E2LTJlZThhYzNlYTRiMiJ9.DpMlQ-FpZAr0PqmDw4AhKwfW2uTXFWbrYY5bdYAFf6E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/v1/auth/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "get all product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Professional Stethoscope\",\n    \"description\": \"High-quality diagnostic instrument for medical professionals\",\n    \"image\": [\n        \"stethoscope-full.jpg\",\n        \"stethoscope-head.jpg\"\n    ],\n    \"stock\": 50,\n    \"price\": 1200000,\n    \"weight\": 350,\n    \"base_price\": 1000000,\n    \"sku\": \"PRO-STH-001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "one product",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cart",
+			"item": [
+				{
+					"name": "get cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/v1/cart",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add to cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Inpha3lAbWFpbC5jb20iLCJleHBpcmVkX2F0IjoxNzQ0MzkzNTA4LCJpc3N1ZWRfYXQiOjE3NDQzODI3MDgsInVzZXJfaWQiOiI1NDczMTdhNy01ODhlLTQxYWQtYmNhNi0yZWU4YWMzZWE0YjIiLCJ1c2VybmFtZSI6Inpha3lkZmxzIn0.QzwEFJ0JaKNsm7Tc1BvVcwCYMkfxXaQchR8mMEXn0n0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\":\"983f5025-26cb-418f-bd4e-9ebef36bf65d\",\n    \"quantity\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/v1/cart/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"v1",
+								"cart",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "create wallet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\":\"547317a7-588e-41ad-bca6-2ee8ac3ea4b2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/user/wallet",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wallet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\":200000,\n    \"description\":\"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/user/wallet/3441a239-b1de-4c45-adfb-79fd919f7ab5/deposit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wallet",
+								"3441a239-b1de-4c45-adfb-79fd919f7ab5",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get account",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\":200000,\n    \"description\":\"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/user/wallet/3441a239-b1de-4c45-adfb-79fd919f7ab5",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wallet",
+								"3441a239-b1de-4c45-adfb-79fd919f7ab5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "withdraw",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\":200000,\n    \"description\":\"abc\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/user/wallet/3441a239-b1de-4c45-adfb-79fd919f7ab5/deposit",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"wallet",
+								"3441a239-b1de-4c45-adfb-79fd919f7ab5",
+								"deposit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "purchase",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_id\":\"755dd3c1-5e68-4a3b-8329-9f4071f134f1\",\n    \"selected_items\":[\"926322b9-cb6e-4d17-9311-ea41321adb05\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_id\":\"755dd3c1-5e68-4a3b-8329-9f4071f134f1\",\n    \"selected_items\":[\"926322b9-cb6e-4d17-9311-ea41321adb05\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cart_id\":\"755dd3c1-5e68-4a3b-8329-9f4071f134f1\",\n    \"selected_items\":[\"926322b9-cb6e-4d17-9311-ea41321adb05\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order/5da33669-2ff5-4eb5-b25d-de34abf7da20",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"5da33669-2ff5-4eb5-b25d-de34abf7da20"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\":\"paid\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/v1/order/5da33669-2ff5-4eb5-b25d-de34abf7da20/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"5da33669-2ff5-4eb5-b25d-de34abf7da20",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
